@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 app.post('/auth/login', (req, res) => {
     const { usuario, senha } = req.body;
 
-    // Validação simples para demonstração (não usar em produção)
     if (usuario === 'user' && senha === 'password') {
         const token = jwt.sign({ usuario }, secretKey, { expiresIn: '1h' });
         return res.json({ token });
